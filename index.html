@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: rgb(30, 0, 77);
+            font-family: "Cairo", sans-serif;
+        }
+
+
+
+        .tasks-table {
+            background-color: rgb(239, 239, 239);
+            width: 60%;
+            height: 500px;
+
+        }
+
+        button {
+            border: none;
+            font-size: 20px;
+            box-shadow: 0px 3px 5px rgba(168, 168, 168, 0.38);
+        }
+
+        button.circular {
+
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+        }
+
+
+        .task {
+            display: flex;
+            border-bottom: 1px solid black;
+            padding: 4px;
+            transition: box-shadow 0.2s;
+            background-color: white;
+
+        }
+
+
+        .done {
+
+            background-color: rgb(158, 253, 160);
+
+        }
+
+
+        .task:hover {
+            box-shadow: 0px 3px 15px rgba(97, 97, 97, 0.843);
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div style="direction: rtl;">
+        <!-- center div -->
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <!-- tasks table -->
+            <div class="tasks-table" style="margin-top: 30px;">
+                <!-- header -->
+
+                <div
+                    style="width: 100%; text-align: center; background: purple; color: white; padding-top: 8px; padding-bottom: 8px;">
+                    <h1 style="display: inline; width: 100%;">مهامى</h1>
+                    <button id="add-btn" class="circular"
+                        style="float: right; background-color: white; margin-right: 8px; display: block; margin-bottom: 5px;">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </div>
+                <!-- header -->
+                <!-- tasks -->
+                <div id="tasks">
+
+                    <!-- task -->
+                    <div class="task" style="background-color: white; display: flex; padding: 20px; ">
+
+                        <!-- tasks info -->
+                        <div style="width: 70%; ">
+                            <h2>قراءه كتاب</h2>
+                            <div>
+                                <span>
+                                    10/10/2024
+                                    <i class="fa-regular fa-calendar-days"></i>
+
+                                </span>
+                            </div>
+
+                        </div>
+                        <!-- tasks info -->
+                        <!-- tasks action -->
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; width: 30%; margin: 5px;">
+                            <button class="circular" style="background-color:red; color: white;">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            <button class="circular" style="background-color:green;color: white;">
+
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="circular" style="background-color:blue;color: white;">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                            </button>
+                        </div>
+
+                        <!-- tasks action -->
+                    </div>
+                    <!-- task -->
+                    <!-- task -->
+                    <div class="task"
+                        style="background-color: white; display: flex; padding: 20px; margin-bottom: 5px; ">
+
+                        <!-- tasks info -->
+                        <div style="width: 70%; ">
+                            <h2>قراءه كتاب</h2>
+                            <div>
+                                <span>
+                                    10/10/2024
+                                    <i class="fa-regular fa-calendar-days"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                        <!-- tasks info -->
+                        <!-- tasks action -->
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; width: 30%; margin: 5px;">
+                            <button class="circular" style="background-color:red; color: white;">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            <button class="circular" style="background-color:green;color: white;">
+
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="circular" style="background-color:blue;color: white;">
+                                <i class="fa-solid fa-pen"></i>
+
+                            </button>
+
+
+
+                        </div>
+
+
+                        <!-- tasks action -->
+
+                    </div>
+                    <!-- task -->
+                    <div class="task" style="background-color: white; display: flex; padding: 20px; ">
+                        <!-- tasks info -->
+                        <div style="width: 70%;">
+                            <h2>قراءه كتاب</h2>
+                            <div>
+                                <span>
+                                    10/10/2024
+                                    <i class="fa-regular fa-calendar-days"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- tasks info -->
+                        <!-- tasks action -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 30%; ">
+                            <button class="circular" style="background-color:red; color: white;">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            <button class="circular" style="background-color:green;color: white;">
+
+                                <i class="fa-solid fa-check"></i>
+
+                            </button>
+                            <button class="circular" style="background-color:blue;color: white;">
+                                <i class="fa-solid fa-pen"></i>
+
+                            </button>
+                        </div>
+                        <!-- tasks action -->
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    // read
+    let tasks = [
+        {
+            "title": "قراءه كتاب",
+            "date": "1/11/2023",
+            "isdone": false
+
+        },
+        {
+            "title": "تعلم جافا سكربت",
+            "date": "24/1/2023",
+            "isdone": false
+        },
+        {
+            "title": "حل التحدى",
+            "date": "1/7/2022",
+            "isdone": false
+        }
+
+    ]
+
+    function getTasksFromStorage() {
+
+        let retreved = JSON.parse(localStorage.getItem("tasks"))
+
+        if (retreved == null) {
+            tasks = []
+        } else {
+            tasks = retreved
+        }
+
+    }
+
+    getTasksFromStorage()
+
+
+
+    function fillTasksInThepage() {
+
+
+
+
+
+        document.getElementById("tasks").innerHTML = " "
+
+        let index = 0
+        for (task of tasks) {
+
+
+
+
+
+
+
+
+            let content = `
+                             <div class="task ${task.isdone ? "done" : " "} "> 
+                            
+                            
+                                                <!-- tasks info -->
+                                            <div style="width: 70%; ">
+                                                <h2>${task.title}</h2>
+                                                <div>
+                                                    <span>
+                                                    ${task.date}
+                                                        <i class="fa-regular fa-calendar-days"></i>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                            <!-- tasks info -->
+                                            <!-- tasks action -->
+                                            <div
+                                                style="display: flex; justify-content: space-between; align-items: center; width: 30%; margin: 5px;">
+                                                <button onclick="dTask(${index})" class="circular" style="background-color:red; color: white;">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+
+                                                ${task.isdone ? `
+                                                <button onclick="cTask(${index})" class="circular" style="background-color:red;color: white;">
+
+                                                            <i class="fa-solid fa-circle-xmark"></i>
+                                                        </button>
+                                                ` : `
+                                                        <button onclick="cTask(${index})" class="circular" style="background-color:green;color: white;">
+
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </button>
+                                                `}
+                                               
+                                                <button onclick="eTask(${index})" class="circular" style="background-color:blue;color: white;">
+                                                    <i class="fa-solid fa-pen"></i>
+
+                                                </button>
+
+                            </div>
+
+
+                        
+
+                      `
+            document.getElementById("tasks").innerHTML += content
+            index++
+
+
+
+
+
+        }
+
+    }
+
+
+
+    fillTasksInThepage()
+    document.getElementById("add-btn").addEventListener("click", function () {
+
+
+        let now = new Date()
+        let date = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear()
+
+        let taskName = prompt("الرجاء ادخال عنوان المهمه")
+        let taskObj = {
+            "title": taskName,
+            "date": date,
+            "isDone": false
+        }
+
+        tasks.push(taskObj)
+
+
+        store()
+
+        fillTasksInThepage()
+
+    })
+
+
+
+
+
+    function dTask(index) {
+
+        let task = tasks[index]
+        let isConfirmed = confirm(" هل انت متأكد من مسح :" + task.title + "؟")
+
+        if (isConfirmed) {
+
+            tasks.splice(index, 1)
+            store()
+            fillTasksInThepage()
+        }
+    }
+
+
+
+    function eTask(index) {
+        let task = tasks[index]
+        let newTask = prompt("الرجاء تعديل المهمه", task.title)
+        task.title = newTask
+        store()
+        fillTasksInThepage()
+    }
+
+
+    function cTask(index) {
+        let task = tasks[index]
+        task.isdone = !task.isdone
+        store()
+        fillTasksInThepage()
+    }
+
+    // storage functions
+
+    function store() {
+        let tasksString = JSON.stringify(tasks)
+        localStorage.setItem("tasks", tasksString)
+    }
+
+
+</script>
+
+
+
+
+</html>
